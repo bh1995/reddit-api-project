@@ -14,7 +14,9 @@
     "@reduxjs/toolkit": "^1.x.x",
     "react-redux": "^7.x.x",
     "redux": "^4.x.x",
-    "axios": "^0.x.x"
+    "axios": "^0.x.x",
+    "chart": "^0.1.2",
+    "react-chartjs-2": "^5.2.0"
   },
   "overrides": {
     "@svgr/webpack": "^8.0.1",
