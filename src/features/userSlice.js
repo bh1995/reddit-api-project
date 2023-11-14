@@ -2,41 +2,41 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = {
-  userData: {},
-  status: "idle", // 'idle' | 'loading' | 'succeeded' | 'failed'
-  error: null,
-};
-
-// Async thunk to fetch user data
-export const fetchUserData = createAsyncThunk(
-  "user/fetchUserData",
-  async (username) => {
-    const response = await axios.get(
-        `https://www.reddit.com/user/${username}/comments.json` // using json api, not standard oath api
-    );
-    return response.data;
+// Async thunk for fetching user data
+export const fetchRedditData = createAsyncThunk(
+  'user/fetchRedditData',
+  async (username, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(`https://www.reddit.com/user/${username}/comments.json`);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );
 
 const userSlice = createSlice({
-  name: "user",
-  initialState,
-  reducers: {},
-  extraReducers(builder) {
-    builder
-      .addCase(fetchUserData.pending, (state, action) => {
-        state.status = "loading";
-      })
-      .addCase(fetchUserData.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        // Add user data to the state
-        state.userData = action.payload;
-      })
-      .addCase(fetchUserData.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
-      });
+  name: 'user',
+  initialState: {
+    data: null,
+    status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
+    error: null,
+  },
+  reducers: {
+    // ... other reducers ...
+  },
+  extraReducers: {
+    [fetchRedditData.pending]: (state) => {
+      state.status = 'loading';
+    },
+    [fetchRedditData.fulfilled]: (state, action) => {
+      state.status = 'succeeded';
+      state.data = action.payload;
+    },
+    [fetchRedditData.rejected]: (state, action) => {
+      state.status = 'failed';
+      state.error = action.payload;
+    },
   },
 });
 

@@ -1,7 +1,8 @@
 import './App.css';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUserData } from './features/userSlice';
+import { fetchRedditData } from './features/userSlice';
+import RedditDataDisplay from './dataDisplay'; 
 
 
 function App() {
@@ -11,8 +12,10 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(fetchUserData(username));
+    dispatch(fetchRedditData(username)); // ex user: FeatureIll729
   };
+
+  const redditJsonData = useSelector((state) => state.user.data);
 
   return (
     <div>
@@ -30,7 +33,10 @@ function App() {
       {user.status === 'loading' && <p>Loading...</p>}
       {user.status === 'succeeded' && (
         // Display user data here
-        <div>Display data here.</div>
+        // <div>Display data here.</div>
+        <div>
+        <RedditDataDisplay jsonData={redditJsonData} />
+    </div>
       )}
       {user.status === 'failed' && <p>Error: {user.error}</p>}
     </div>
