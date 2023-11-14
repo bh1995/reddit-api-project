@@ -14,7 +14,12 @@
       "openFiles": [
         "src/App.js"
       ]
-    }
+	},
+	"vscode": {
+		"extensions": [
+			"rvest.vs-code-prettier-eslint"
+		]
+	}
   },
   "portsAttributes": {
     "3000": {
