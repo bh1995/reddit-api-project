@@ -73,14 +73,27 @@ header {
   box-shadow: 0 0.25em 0.5em 0 rgba(0,0,0,0.2);
 }
 
+.chart-title {
+  text-align: inline-block;
+  margin-bottom: 2em; /* Adjust as needed */
+  /* Additional styling */
+}
+
 .button:hover {
   background-color: #3f1a63; /* Darker shade of green when hovered over */
   transform: scale(1.05); /* Slightly increase size on hover */
 }
 
+.canvas-container {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 canvas {
   display: block;
-  margin: 0 auto;
+  margin: auto; /* This centers the canvas if it's a block element */
 }
 
 

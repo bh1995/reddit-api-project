@@ -41,22 +41,22 @@ function App() {
       {user.status === "loading" && <p>Loading...</p>}
       {user.status === "succeeded" && (
         // Display user data here
-        // <div>Display data here.</div>
+        
         <div className="chart-grid">
-          <h1>User: {username}</h1>
+          {/* <h1>User: {username}</h1> */}
           {/* <div>
           <RedditDataDisplay jsonData={redditJsonData} />
         </div> */}
           <div>
-            Comments Chart
+          <h3 className="chart-title">Comments Chart</h3> 
             <CommentsChart jsonData={redditJsonData} />
           </div>
           <div>
-            Sentiment Chart
+          <h3 className="chart-title">Sentiment Chart</h3> 
             <SentimentChart jsonData={redditJsonData} />
           </div>
-          <div>
-            Word Cloud
+          <div className="canvas-container">
+            <h3 className="chart-title">Subreddit Word Cloud</h3>
             <WordCloudComponent jsonData={redditJsonData} />
           </div>
         </div>

@@ -29,11 +29,18 @@ const WordCloudComponent = ({ jsonData }) => {
         key,
         wordCounts[key],
       ]);
-      WordCloud(canvasRef.current, { list: wordCloudData, weightFactor: 2, minSize: 10000 });
+      WordCloud(canvasRef.current, {
+        list: wordCloudData,
+        weightFactor: 10,
+        gridSize: 5,
+        origin: [0, 0],
+        shrinkToFit: true,
+        minSize: 6
+      }); // , weightFactor: 3, minSize: 36
     }
   }, [words]); // Redraw word cloud if 'words' prop changes
 
-  return <canvas ref={canvasRef} width="1000" height="1000"></canvas>;
+  return <canvas ref={canvasRef} width="500" height="500"></canvas>;
 };
 
 export default WordCloudComponent;
