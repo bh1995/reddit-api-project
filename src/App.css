@@ -18,14 +18,78 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+header {
+    background-color: #f0f0f0; /* Choose your color */
+    padding: 1em 0;
+    text-align: center;
+    /* Add other styles as needed */
 }
 
-.heart {
-  color: #ff0000;
+.page-container {
+    margin: 0 auto;
+    max-width: 90%; /* Or any max-width or full-width */
+    padding: 0 5em;
 }
 
-.small {
-  font-size: 0.75rem;
+.search-bar {
+    margin: 1em 0;
+    text-align: center; /* Center the search bar */
+}
+
+.search-bar input[type="text"] {
+    width: 50%; /* Adjust as needed */
+    padding: 0.5em;
+    margin: 0 auto;
+    /* Add other input styles as needed */
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 4 columns */
+  grid-template-rows: repeat(2, 1fr); /* 4 rows */
+  gap: 2vmin; /* space between charts */
+}
+
+.chart-grid > div {
+  /* Optional: If your charts are wrapped in divs */
+  overflow: hidden; /* To handle overflow */
+}
+
+.button {
+  background-color: #664caf; /* Green background */
+  border: none; /* No border */
+  color: white; /* White text */
+  padding: 0.9375em 2em; /* Relative to the font size */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em; /* Default font size */
+  margin: 0.25em 0.125em;
+  cursor: pointer; /* Cursor changes to a pointer when hovered over */
+  border-radius: 0.5em; /* Rounded corners */
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+  /* Shadow */
+  box-shadow: 0 0.25em 0.5em 0 rgba(0,0,0,0.2);
+}
+
+.button:hover {
+  background-color: #3f1a63; /* Darker shade of green when hovered over */
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+
+@media (max-width: 768px) {
+  .chart-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search-bar input[type="text"] {
+      width: 80%; /* Wider input on smaller screens */
+  }
 }

@@ -16,7 +16,9 @@
     "redux": "^4.x.x",
     "axios": "^0.x.x",
     "chart": "^0.1.2",
-    "react-chartjs-2": "^5.2.0"
+    "react-chartjs-2": "^5.2.0",
+    "sentiment": "^5.0.2",
+    "wordcloud": "^1.2.2"
   },
   "overrides": {
     "@svgr/webpack": "^8.0.1",
