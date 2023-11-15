@@ -15,7 +15,7 @@
     "react-redux": "^7.x.x",
     "redux": "^4.x.x",
     "axios": "^0.x.x",
-    "chart-js": "^0.1.2",
+    "chart.js": "*",
     "react-chartjs-2": "^5.2.0",
     "sentiment": "^5.0.2",
     "wordcloud": "^1.2.2"
