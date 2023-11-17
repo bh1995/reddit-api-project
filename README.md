@@ -17,3 +17,5 @@ To utilize the app, simply enter a Reddit user's name in the search bar provided
 ## Contributing
 Contributions to the Redditor Analyzer App are welcome. Please feel free to fork the repository, make changes, and submit a pull request for review. All changes are automatically pushed to the docker image on dockehub (bh1995/my-redditor-analyzer-app). 
 
+## Showcase
+![app-image](https://github.com/bh1995/reddit-api-project/assets/55191733/cc8a8775-2cf0-422b-99bd-df77ac6f15bd)
