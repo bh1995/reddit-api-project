@@ -1,4 +1,4 @@
-name: Build and Deploy Docker Image
+name: CI/CD Workflow
 
 on:
   push:
@@ -7,19 +7,30 @@ on:
     branches: [ "main" ]
 
 jobs:
+  test_and_push:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14' 
+    - name: Install dependencies
+      run: npm install # or yarn install
+    - name: Run tests
+      run: npm test 
 
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
+  build_docker:
+  needs: test_and_push
+  runs-on: ubuntu-latest
+  if: github.ref == 'refs/heads/main'
+  steps:
     - uses: actions/checkout@v2
     - name: Log in to Docker Hub
       uses: docker/login-action@v1
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-        
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
       with:
