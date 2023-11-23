@@ -5,8 +5,8 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.x.x",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^14.4.3",
+    "@testing-library/user-event": "*",
+    "@testing-library/react": "14.x.x",
     "axios": "^0.x.x",
     "chart.js": "*",
     "react": "^18.2.0",
@@ -15,11 +15,15 @@
     "react-redux": "^7.x.x",
     "react-router-dom": "^6.9.0",
     "react-scripts": "^5.0.1",
+    "react-hooks": "*",
     "redux": "^4.x.x",
+    "redux-mock-store": "^1.5.x",
+    "redux-thunk": "*",
     "sentiment": "^5.0.2",
     "serve": "^14.2.1",
     "web-vitals": "^3.1.0",
-    "wordcloud": "^1.2.2"
+    "wordcloud": "^1.2.2",
+    "canvas": "2.11.2"
   },
   "overrides": {
     "@svgr/webpack": "^8.0.1",

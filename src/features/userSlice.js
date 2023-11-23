@@ -25,19 +25,20 @@ const userSlice = createSlice({
   reducers: {
     // ... other reducers ...
   },
-  extraReducers: {
-    [fetchRedditData.pending]: (state) => {
-      state.status = 'loading';
-    },
-    [fetchRedditData.fulfilled]: (state, action) => {
-      state.status = 'succeeded';
-      state.data = action.payload;
-    },
-    [fetchRedditData.rejected]: (state, action) => {
-      state.status = 'failed';
-      state.error = action.payload;
-    },
-  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchRedditData.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchRedditData.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.data = action.payload;
+      })
+      .addCase(fetchRedditData.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.payload;
+      });
+  }
 });
 
 export default userSlice.reducer;
